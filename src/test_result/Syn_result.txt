@@ -1,0 +1,580 @@
+注：为便于区分，[]为语法栈内容，()为输入串内容
+
+步骤	[语法栈]		(输入串)		表达式
+0	['#', 'Prog']	(int)	None
+1	['#', u'Dstr']	(int)	1 Dstr
+2	['#', u'Stem', u'Decl']	(int)	2 Decl Stem
+3	['#', u'Stem', u'Type', u'ID', u'int']	(int)	4 int ID Type
+4	['#', u'Stem', u'Type', u'ID']	(ID)	
+5	['#', u'Stem', u'Type']	(()	
+6	['#', u'Stem', u'Func']	(()	7 Func
+7	['#', u'Stem', u'Epro', u'Bloc', u')', u'Pnum', u'Vpam', u'(', u'Mpro']	(()	9 Mpro ( Vpam Pnum ) Bloc Epro
+8	['#', u'Stem', u'Epro', u'Bloc', u')', u'Pnum', u'Vpam', u'(']	(()	0
+9	['#', u'Stem', u'Epro', u'Bloc', u')', u'Pnum', u'Vpam']	(int)	
+10	['#', u'Stem', u'Epro', u'Bloc', u')', u'Pnum', u'Pist']	(int)	10 Pist
+11	['#', u'Stem', u'Epro', u'Bloc', u')', u'Pnum', u'Ptem', u'Parm']	(int)	12 Parm Ptem
+12	['#', u'Stem', u'Epro', u'Bloc', u')', u'Pnum', u'Ptem', u'Advr', u'ID', u'int']	(int)	14 int ID Advr
+13	['#', u'Stem', u'Epro', u'Bloc', u')', u'Pnum', u'Ptem', u'Advr', u'ID']	(ID)	
+14	['#', u'Stem', u'Epro', u'Bloc', u')', u'Pnum', u'Ptem', u'Advr']	(,)	
+15	['#', u'Stem', u'Epro', u'Bloc', u')', u'Pnum', u'Ptem']	(,)	0
+16	['#', u'Stem', u'Epro', u'Bloc', u')', u'Pnum', u'Pist', u',']	(,)	13 , Pist
+17	['#', u'Stem', u'Epro', u'Bloc', u')', u'Pnum', u'Pist']	(int)	
+18	['#', u'Stem', u'Epro', u'Bloc', u')', u'Pnum', u'Ptem', u'Parm']	(int)	12 Parm Ptem
+19	['#', u'Stem', u'Epro', u'Bloc', u')', u'Pnum', u'Ptem', u'Advr', u'ID', u'int']	(int)	14 int ID Advr
+20	['#', u'Stem', u'Epro', u'Bloc', u')', u'Pnum', u'Ptem', u'Advr', u'ID']	(ID)	
+21	['#', u'Stem', u'Epro', u'Bloc', u')', u'Pnum', u'Ptem', u'Advr']	(,)	
+22	['#', u'Stem', u'Epro', u'Bloc', u')', u'Pnum', u'Ptem']	(,)	0
+23	['#', u'Stem', u'Epro', u'Bloc', u')', u'Pnum', u'Pist', u',']	(,)	13 , Pist
+24	['#', u'Stem', u'Epro', u'Bloc', u')', u'Pnum', u'Pist']	(int)	
+25	['#', u'Stem', u'Epro', u'Bloc', u')', u'Pnum', u'Ptem', u'Parm']	(int)	12 Parm Ptem
+26	['#', u'Stem', u'Epro', u'Bloc', u')', u'Pnum', u'Ptem', u'Advr', u'ID', u'int']	(int)	14 int ID Advr
+27	['#', u'Stem', u'Epro', u'Bloc', u')', u'Pnum', u'Ptem', u'Advr', u'ID']	(ID)	
+28	['#', u'Stem', u'Epro', u'Bloc', u')', u'Pnum', u'Ptem', u'Advr']	())	
+29	['#', u'Stem', u'Epro', u'Bloc', u')', u'Pnum', u'Ptem']	())	0
+30	['#', u'Stem', u'Epro', u'Bloc', u')', u'Pnum']	())	0
+31	['#', u'Stem', u'Epro', u'Bloc', u')']	())	0
+32	['#', u'Stem', u'Epro', u'Bloc']	({)	
+33	['#', u'Stem', u'Epro', u'}', u'Lstr', u'Kdec', u'{']	({)	15 { Kdec Lstr }
+34	['#', u'Stem', u'Epro', u'}', u'Lstr', u'Kdec']	(int)	
+35	['#', u'Stem', u'Epro', u'}', u'Lstr', u'Kdec', u';', u'Advr', u'Kvde']	(int)	16 Kvde Advr ; Kdec
+36	['#', u'Stem', u'Epro', u'}', u'Lstr', u'Kdec', u';', u'Advr', u'ID', u'int']	(int)	17 int ID
+37	['#', u'Stem', u'Epro', u'}', u'Lstr', u'Kdec', u';', u'Advr', u'ID']	(ID)	
+38	['#', u'Stem', u'Epro', u'}', u'Lstr', u'Kdec', u';', u'Advr']	(;)	
+39	['#', u'Stem', u'Epro', u'}', u'Lstr', u'Kdec', u';']	(;)	0
+40	['#', u'Stem', u'Epro', u'}', u'Lstr', u'Kdec']	(int)	
+41	['#', u'Stem', u'Epro', u'}', u'Lstr', u'Kdec', u';', u'Advr', u'Kvde']	(int)	16 Kvde Advr ; Kdec
+42	['#', u'Stem', u'Epro', u'}', u'Lstr', u'Kdec', u';', u'Advr', u'ID', u'int']	(int)	17 int ID
+43	['#', u'Stem', u'Epro', u'}', u'Lstr', u'Kdec', u';', u'Advr', u'ID']	(ID)	
+44	['#', u'Stem', u'Epro', u'}', u'Lstr', u'Kdec', u';', u'Advr']	(;)	
+45	['#', u'Stem', u'Epro', u'}', u'Lstr', u'Kdec', u';']	(;)	0
+46	['#', u'Stem', u'Epro', u'}', u'Lstr', u'Kdec']	(ID)	
+47	['#', u'Stem', u'Epro', u'}', u'Lstr']	(ID)	0
+48	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Lang']	(ID)	18 Lang Ltem
+49	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Asla']	(ID)	23 Asla
+50	['#', u'Stem', u'Epro', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Expr', u'=', u'Push', u'ID', u'Push', u'Mexp']	(ID)	24 Mexp Push ID Push = Expr Upex Pcsk ;
+51	['#', u'Stem', u'Epro', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Expr', u'=', u'Push', u'ID', u'Push']	(ID)	0
+52	['#', u'Stem', u'Epro', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Expr', u'=', u'Push', u'ID']	(ID)	0
+53	['#', u'Stem', u'Epro', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Expr', u'=', u'Push']	(=)	
+54	['#', u'Stem', u'Epro', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Expr', u'=']	(=)	0
+55	['#', u'Stem', u'Epro', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Expr']	(NUM)	
+56	['#', u'Stem', u'Epro', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Atem', u'Aexp']	(NUM)	30 Aexp Atem
+57	['#', u'Stem', u'Epro', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Atem', u'Itmp', u'Item']	(NUM)	37 Item Itmp
+58	['#', u'Stem', u'Epro', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Atem', u'Itmp', u'Ftem', u'Fact']	(NUM)	40 Fact Ftem
+59	['#', u'Stem', u'Epro', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Atem', u'Itmp', u'Ftem', u'NUM', u'Push']	(NUM)	43 Push NUM
+60	['#', u'Stem', u'Epro', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Atem', u'Itmp', u'Ftem', u'NUM']	(NUM)	0
+61	['#', u'Stem', u'Epro', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Atem', u'Itmp', u'Ftem']	(;)	
+62	['#', u'Stem', u'Epro', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Atem', u'Itmp']	(;)	0
+63	['#', u'Stem', u'Epro', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Atem']	(;)	0
+64	['#', u'Stem', u'Epro', u'}', u'Ltem', u';', u'Pcsk', u'Upex']	(;)	0
+65	['#', u'Stem', u'Epro', u'}', u'Ltem', u';', u'Pcsk']	(;)	0
+66	['#', u'Stem', u'Epro', u'}', u'Ltem', u';']	(;)	0
+67	['#', u'Stem', u'Epro', u'}', u'Ltem']	(if)	
+68	['#', u'Stem', u'Epro', u'}', u'Lstr']	(if)	19 Lstr
+69	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Lang']	(if)	18 Lang Ltem
+70	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Ifla']	(if)	20 Ifla
+71	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Bkpr', u'Etem', u'Ptbr', u'Bloc', u')', u'Jexp', u'Expr', u'Mexp', u'(', u'Mtab', u'if']	(if)	28 if Mtab ( Mexp Expr Jexp ) Bloc Ptbr Etem Bkpr
+72	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Bkpr', u'Etem', u'Ptbr', u'Bloc', u')', u'Jexp', u'Expr', u'Mexp', u'(', u'Mtab']	(()	
+73	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Bkpr', u'Etem', u'Ptbr', u'Bloc', u')', u'Jexp', u'Expr', u'Mexp', u'(']	(()	0
+74	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Bkpr', u'Etem', u'Ptbr', u'Bloc', u')', u'Jexp', u'Expr', u'Mexp']	(ID)	
+75	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Bkpr', u'Etem', u'Ptbr', u'Bloc', u')', u'Jexp', u'Expr']	(ID)	0
+76	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Bkpr', u'Etem', u'Ptbr', u'Bloc', u')', u'Jexp', u'Atem', u'Aexp']	(ID)	30 Aexp Atem
+77	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Bkpr', u'Etem', u'Ptbr', u'Bloc', u')', u'Jexp', u'Atem', u'Itmp', u'Item']	(ID)	37 Item Itmp
+78	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Bkpr', u'Etem', u'Ptbr', u'Bloc', u')', u'Jexp', u'Atem', u'Itmp', u'Ftem', u'Fact']	(ID)	40 Fact Ftem
+79	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Bkpr', u'Etem', u'Ptbr', u'Bloc', u')', u'Jexp', u'Atem', u'Itmp', u'Ftem', u'FTYP', u'ID', u'Push']	(ID)	45 Push ID FTYP
+80	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Bkpr', u'Etem', u'Ptbr', u'Bloc', u')', u'Jexp', u'Atem', u'Itmp', u'Ftem', u'FTYP', u'ID']	(ID)	0
+81	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Bkpr', u'Etem', u'Ptbr', u'Bloc', u')', u'Jexp', u'Atem', u'Itmp', u'Ftem', u'FTYP']	(>)	
+82	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Bkpr', u'Etem', u'Ptbr', u'Bloc', u')', u'Jexp', u'Atem', u'Itmp', u'Ftem']	(>)	0
+83	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Bkpr', u'Etem', u'Ptbr', u'Bloc', u')', u'Jexp', u'Atem', u'Itmp']	(>)	0
+84	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Bkpr', u'Etem', u'Ptbr', u'Bloc', u')', u'Jexp', u'Atem']	(>)	0
+85	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Bkpr', u'Etem', u'Ptbr', u'Bloc', u')', u'Jexp', u'Expr', u'>', u'Push']	(>)	33 Push > Expr
+86	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Bkpr', u'Etem', u'Ptbr', u'Bloc', u')', u'Jexp', u'Expr', u'>']	(>)	0
+87	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Bkpr', u'Etem', u'Ptbr', u'Bloc', u')', u'Jexp', u'Expr']	(()	
+88	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Bkpr', u'Etem', u'Ptbr', u'Bloc', u')', u'Jexp', u'Atem', u'Aexp']	(()	30 Aexp Atem
+89	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Bkpr', u'Etem', u'Ptbr', u'Bloc', u')', u'Jexp', u'Atem', u'Itmp', u'Item']	(()	37 Item Itmp
+90	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Bkpr', u'Etem', u'Ptbr', u'Bloc', u')', u'Jexp', u'Atem', u'Itmp', u'Ftem', u'Fact']	(()	40 Fact Ftem
+91	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Bkpr', u'Etem', u'Ptbr', u'Bloc', u')', u'Jexp', u'Atem', u'Itmp', u'Ftem', u')', u'Expr', u'(']	(()	44 ( Expr )
+92	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Bkpr', u'Etem', u'Ptbr', u'Bloc', u')', u'Jexp', u'Atem', u'Itmp', u'Ftem', u')', u'Expr']	(ID)	
+93	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Bkpr', u'Etem', u'Ptbr', u'Bloc', u')', u'Jexp', u'Atem', u'Itmp', u'Ftem', u')', u'Atem', u'Aexp']	(ID)	30 Aexp Atem
+94	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Bkpr', u'Etem', u'Ptbr', u'Bloc', u')', u'Jexp', u'Atem', u'Itmp', u'Ftem', u')', u'Atem', u'Itmp', u'Item']	(ID)	37 Item Itmp
+95	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Bkpr', u'Etem', u'Ptbr', u'Bloc', u')', u'Jexp', u'Atem', u'Itmp', u'Ftem', u')', u'Atem', u'Itmp', u'Ftem', u'Fact']	(ID)	40 Fact Ftem
+96	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Bkpr', u'Etem', u'Ptbr', u'Bloc', u')', u'Jexp', u'Atem', u'Itmp', u'Ftem', u')', u'Atem', u'Itmp', u'Ftem', u'FTYP', u'ID', u'Push']	(ID)	45 Push ID FTYP
+97	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Bkpr', u'Etem', u'Ptbr', u'Bloc', u')', u'Jexp', u'Atem', u'Itmp', u'Ftem', u')', u'Atem', u'Itmp', u'Ftem', u'FTYP', u'ID']	(ID)	0
+98	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Bkpr', u'Etem', u'Ptbr', u'Bloc', u')', u'Jexp', u'Atem', u'Itmp', u'Ftem', u')', u'Atem', u'Itmp', u'Ftem', u'FTYP']	(+)	
+99	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Bkpr', u'Etem', u'Ptbr', u'Bloc', u')', u'Jexp', u'Atem', u'Itmp', u'Ftem', u')', u'Atem', u'Itmp', u'Ftem']	(+)	0
+100	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Bkpr', u'Etem', u'Ptbr', u'Bloc', u')', u'Jexp', u'Atem', u'Itmp', u'Ftem', u')', u'Atem', u'Itmp']	(+)	0
+101	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Bkpr', u'Etem', u'Ptbr', u'Bloc', u')', u'Jexp', u'Atem', u'Itmp', u'Ftem', u')', u'Atem', u'Upex', u'Aexp', u'+', u'Push']	(+)	38 Push + Aexp Upex
+102	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Bkpr', u'Etem', u'Ptbr', u'Bloc', u')', u'Jexp', u'Atem', u'Itmp', u'Ftem', u')', u'Atem', u'Upex', u'Aexp', u'+']	(+)	0
+103	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Bkpr', u'Etem', u'Ptbr', u'Bloc', u')', u'Jexp', u'Atem', u'Itmp', u'Ftem', u')', u'Atem', u'Upex', u'Aexp']	(ID)	
+104	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Bkpr', u'Etem', u'Ptbr', u'Bloc', u')', u'Jexp', u'Atem', u'Itmp', u'Ftem', u')', u'Atem', u'Upex', u'Itmp', u'Item']	(ID)	37 Item Itmp
+105	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Bkpr', u'Etem', u'Ptbr', u'Bloc', u')', u'Jexp', u'Atem', u'Itmp', u'Ftem', u')', u'Atem', u'Upex', u'Itmp', u'Ftem', u'Fact']	(ID)	40 Fact Ftem
+106	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Bkpr', u'Etem', u'Ptbr', u'Bloc', u')', u'Jexp', u'Atem', u'Itmp', u'Ftem', u')', u'Atem', u'Upex', u'Itmp', u'Ftem', u'FTYP', u'ID', u'Push']	(ID)	45 Push ID FTYP
+107	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Bkpr', u'Etem', u'Ptbr', u'Bloc', u')', u'Jexp', u'Atem', u'Itmp', u'Ftem', u')', u'Atem', u'Upex', u'Itmp', u'Ftem', u'FTYP', u'ID']	(ID)	0
+108	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Bkpr', u'Etem', u'Ptbr', u'Bloc', u')', u'Jexp', u'Atem', u'Itmp', u'Ftem', u')', u'Atem', u'Upex', u'Itmp', u'Ftem', u'FTYP']	())	
+109	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Bkpr', u'Etem', u'Ptbr', u'Bloc', u')', u'Jexp', u'Atem', u'Itmp', u'Ftem', u')', u'Atem', u'Upex', u'Itmp', u'Ftem']	())	0
+110	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Bkpr', u'Etem', u'Ptbr', u'Bloc', u')', u'Jexp', u'Atem', u'Itmp', u'Ftem', u')', u'Atem', u'Upex', u'Itmp']	())	0
+111	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Bkpr', u'Etem', u'Ptbr', u'Bloc', u')', u'Jexp', u'Atem', u'Itmp', u'Ftem', u')', u'Atem', u'Upex']	())	0
+112	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Bkpr', u'Etem', u'Ptbr', u'Bloc', u')', u'Jexp', u'Atem', u'Itmp', u'Ftem', u')', u'Atem']	())	0
+113	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Bkpr', u'Etem', u'Ptbr', u'Bloc', u')', u'Jexp', u'Atem', u'Itmp', u'Ftem', u')']	())	0
+114	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Bkpr', u'Etem', u'Ptbr', u'Bloc', u')', u'Jexp', u'Atem', u'Itmp', u'Ftem']	())	
+115	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Bkpr', u'Etem', u'Ptbr', u'Bloc', u')', u'Jexp', u'Atem', u'Itmp']	())	0
+116	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Bkpr', u'Etem', u'Ptbr', u'Bloc', u')', u'Jexp', u'Atem']	())	0
+117	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Bkpr', u'Etem', u'Ptbr', u'Bloc', u')', u'Jexp']	())	0
+118	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Bkpr', u'Etem', u'Ptbr', u'Bloc', u')']	())	0
+119	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Bkpr', u'Etem', u'Ptbr', u'Bloc']	({)	
+120	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Bkpr', u'Etem', u'Ptbr', u'}', u'Lstr', u'Kdec', u'{']	({)	15 { Kdec Lstr }
+121	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Bkpr', u'Etem', u'Ptbr', u'}', u'Lstr', u'Kdec']	(ID)	
+122	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Bkpr', u'Etem', u'Ptbr', u'}', u'Lstr']	(ID)	0
+123	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Bkpr', u'Etem', u'Ptbr', u'}', u'Ltem', u'Lang']	(ID)	18 Lang Ltem
+124	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Bkpr', u'Etem', u'Ptbr', u'}', u'Ltem', u'Asla']	(ID)	23 Asla
+125	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Bkpr', u'Etem', u'Ptbr', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Expr', u'=', u'Push', u'ID', u'Push', u'Mexp']	(ID)	24 Mexp Push ID Push = Expr Upex Pcsk ;
+126	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Bkpr', u'Etem', u'Ptbr', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Expr', u'=', u'Push', u'ID', u'Push']	(ID)	0
+127	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Bkpr', u'Etem', u'Ptbr', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Expr', u'=', u'Push', u'ID']	(ID)	0
+128	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Bkpr', u'Etem', u'Ptbr', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Expr', u'=', u'Push']	(=)	
+129	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Bkpr', u'Etem', u'Ptbr', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Expr', u'=']	(=)	0
+130	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Bkpr', u'Etem', u'Ptbr', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Expr']	(ID)	
+131	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Bkpr', u'Etem', u'Ptbr', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Atem', u'Aexp']	(ID)	30 Aexp Atem
+132	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Bkpr', u'Etem', u'Ptbr', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Atem', u'Itmp', u'Item']	(ID)	37 Item Itmp
+133	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Bkpr', u'Etem', u'Ptbr', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Atem', u'Itmp', u'Ftem', u'Fact']	(ID)	40 Fact Ftem
+134	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Bkpr', u'Etem', u'Ptbr', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Atem', u'Itmp', u'Ftem', u'FTYP', u'ID', u'Push']	(ID)	45 Push ID FTYP
+135	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Bkpr', u'Etem', u'Ptbr', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Atem', u'Itmp', u'Ftem', u'FTYP', u'ID']	(ID)	0
+136	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Bkpr', u'Etem', u'Ptbr', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Atem', u'Itmp', u'Ftem', u'FTYP']	(+)	
+137	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Bkpr', u'Etem', u'Ptbr', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Atem', u'Itmp', u'Ftem']	(+)	0
+138	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Bkpr', u'Etem', u'Ptbr', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Atem', u'Itmp']	(+)	0
+139	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Bkpr', u'Etem', u'Ptbr', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Atem', u'Upex', u'Aexp', u'+', u'Push']	(+)	38 Push + Aexp Upex
+140	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Bkpr', u'Etem', u'Ptbr', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Atem', u'Upex', u'Aexp', u'+']	(+)	0
+141	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Bkpr', u'Etem', u'Ptbr', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Atem', u'Upex', u'Aexp']	(()	
+142	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Bkpr', u'Etem', u'Ptbr', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Atem', u'Upex', u'Itmp', u'Item']	(()	37 Item Itmp
+143	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Bkpr', u'Etem', u'Ptbr', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Atem', u'Upex', u'Itmp', u'Ftem', u'Fact']	(()	40 Fact Ftem
+144	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Bkpr', u'Etem', u'Ptbr', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Atem', u'Upex', u'Itmp', u'Ftem', u')', u'Expr', u'(']	(()	44 ( Expr )
+145	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Bkpr', u'Etem', u'Ptbr', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Atem', u'Upex', u'Itmp', u'Ftem', u')', u'Expr']	(ID)	
+146	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Bkpr', u'Etem', u'Ptbr', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Atem', u'Upex', u'Itmp', u'Ftem', u')', u'Atem', u'Aexp']	(ID)	30 Aexp Atem
+147	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Bkpr', u'Etem', u'Ptbr', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Atem', u'Upex', u'Itmp', u'Ftem', u')', u'Atem', u'Itmp', u'Item']	(ID)	37 Item Itmp
+148	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Bkpr', u'Etem', u'Ptbr', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Atem', u'Upex', u'Itmp', u'Ftem', u')', u'Atem', u'Itmp', u'Ftem', u'Fact']	(ID)	40 Fact Ftem
+149	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Bkpr', u'Etem', u'Ptbr', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Atem', u'Upex', u'Itmp', u'Ftem', u')', u'Atem', u'Itmp', u'Ftem', u'FTYP', u'ID', u'Push']	(ID)	45 Push ID FTYP
+150	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Bkpr', u'Etem', u'Ptbr', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Atem', u'Upex', u'Itmp', u'Ftem', u')', u'Atem', u'Itmp', u'Ftem', u'FTYP', u'ID']	(ID)	0
+151	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Bkpr', u'Etem', u'Ptbr', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Atem', u'Upex', u'Itmp', u'Ftem', u')', u'Atem', u'Itmp', u'Ftem', u'FTYP']	(*)	
+152	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Bkpr', u'Etem', u'Ptbr', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Atem', u'Upex', u'Itmp', u'Ftem', u')', u'Atem', u'Itmp', u'Ftem']	(*)	0
+153	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Bkpr', u'Etem', u'Ptbr', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Atem', u'Upex', u'Itmp', u'Ftem', u')', u'Atem', u'Itmp', u'Upex', u'Item', u'*', u'Push']	(*)	41 Push * Item Upex
+154	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Bkpr', u'Etem', u'Ptbr', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Atem', u'Upex', u'Itmp', u'Ftem', u')', u'Atem', u'Itmp', u'Upex', u'Item', u'*']	(*)	0
+155	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Bkpr', u'Etem', u'Ptbr', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Atem', u'Upex', u'Itmp', u'Ftem', u')', u'Atem', u'Itmp', u'Upex', u'Item']	(ID)	
+156	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Bkpr', u'Etem', u'Ptbr', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Atem', u'Upex', u'Itmp', u'Ftem', u')', u'Atem', u'Itmp', u'Upex', u'Ftem', u'Fact']	(ID)	40 Fact Ftem
+157	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Bkpr', u'Etem', u'Ptbr', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Atem', u'Upex', u'Itmp', u'Ftem', u')', u'Atem', u'Itmp', u'Upex', u'Ftem', u'FTYP', u'ID', u'Push']	(ID)	45 Push ID FTYP
+158	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Bkpr', u'Etem', u'Ptbr', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Atem', u'Upex', u'Itmp', u'Ftem', u')', u'Atem', u'Itmp', u'Upex', u'Ftem', u'FTYP', u'ID']	(ID)	0
+159	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Bkpr', u'Etem', u'Ptbr', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Atem', u'Upex', u'Itmp', u'Ftem', u')', u'Atem', u'Itmp', u'Upex', u'Ftem', u'FTYP']	(+)	
+160	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Bkpr', u'Etem', u'Ptbr', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Atem', u'Upex', u'Itmp', u'Ftem', u')', u'Atem', u'Itmp', u'Upex', u'Ftem']	(+)	0
+161	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Bkpr', u'Etem', u'Ptbr', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Atem', u'Upex', u'Itmp', u'Ftem', u')', u'Atem', u'Itmp', u'Upex']	(+)	0
+162	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Bkpr', u'Etem', u'Ptbr', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Atem', u'Upex', u'Itmp', u'Ftem', u')', u'Atem', u'Itmp']	(+)	0
+163	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Bkpr', u'Etem', u'Ptbr', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Atem', u'Upex', u'Itmp', u'Ftem', u')', u'Atem', u'Upex', u'Aexp', u'+', u'Push']	(+)	38 Push + Aexp Upex
+164	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Bkpr', u'Etem', u'Ptbr', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Atem', u'Upex', u'Itmp', u'Ftem', u')', u'Atem', u'Upex', u'Aexp', u'+']	(+)	0
+165	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Bkpr', u'Etem', u'Ptbr', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Atem', u'Upex', u'Itmp', u'Ftem', u')', u'Atem', u'Upex', u'Aexp']	(NUM)	
+166	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Bkpr', u'Etem', u'Ptbr', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Atem', u'Upex', u'Itmp', u'Ftem', u')', u'Atem', u'Upex', u'Itmp', u'Item']	(NUM)	37 Item Itmp
+167	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Bkpr', u'Etem', u'Ptbr', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Atem', u'Upex', u'Itmp', u'Ftem', u')', u'Atem', u'Upex', u'Itmp', u'Ftem', u'Fact']	(NUM)	40 Fact Ftem
+168	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Bkpr', u'Etem', u'Ptbr', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Atem', u'Upex', u'Itmp', u'Ftem', u')', u'Atem', u'Upex', u'Itmp', u'Ftem', u'NUM', u'Push']	(NUM)	43 Push NUM
+169	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Bkpr', u'Etem', u'Ptbr', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Atem', u'Upex', u'Itmp', u'Ftem', u')', u'Atem', u'Upex', u'Itmp', u'Ftem', u'NUM']	(NUM)	0
+170	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Bkpr', u'Etem', u'Ptbr', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Atem', u'Upex', u'Itmp', u'Ftem', u')', u'Atem', u'Upex', u'Itmp', u'Ftem']	())	
+171	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Bkpr', u'Etem', u'Ptbr', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Atem', u'Upex', u'Itmp', u'Ftem', u')', u'Atem', u'Upex', u'Itmp']	())	0
+172	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Bkpr', u'Etem', u'Ptbr', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Atem', u'Upex', u'Itmp', u'Ftem', u')', u'Atem', u'Upex']	())	0
+173	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Bkpr', u'Etem', u'Ptbr', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Atem', u'Upex', u'Itmp', u'Ftem', u')', u'Atem']	())	0
+174	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Bkpr', u'Etem', u'Ptbr', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Atem', u'Upex', u'Itmp', u'Ftem', u')']	())	0
+175	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Bkpr', u'Etem', u'Ptbr', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Atem', u'Upex', u'Itmp', u'Ftem']	(;)	
+176	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Bkpr', u'Etem', u'Ptbr', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Atem', u'Upex', u'Itmp']	(;)	0
+177	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Bkpr', u'Etem', u'Ptbr', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Atem', u'Upex']	(;)	0
+178	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Bkpr', u'Etem', u'Ptbr', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Atem']	(;)	0
+179	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Bkpr', u'Etem', u'Ptbr', u'}', u'Ltem', u';', u'Pcsk', u'Upex']	(;)	0
+180	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Bkpr', u'Etem', u'Ptbr', u'}', u'Ltem', u';', u'Pcsk']	(;)	0
+181	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Bkpr', u'Etem', u'Ptbr', u'}', u'Ltem', u';']	(;)	0
+182	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Bkpr', u'Etem', u'Ptbr', u'}', u'Ltem']	(})	
+183	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Bkpr', u'Etem', u'Ptbr', u'}']	(})	0
+184	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Bkpr', u'Etem', u'Ptbr']	(else)	
+185	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Bkpr', u'Etem']	(else)	0
+186	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Bkpr', u'Ptbr', u'Bloc', u'Mtab', u'else', u'Jels']	(else)	29 Jels else Mtab Bloc Ptbr
+187	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Bkpr', u'Ptbr', u'Bloc', u'Mtab', u'else']	(else)	0
+188	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Bkpr', u'Ptbr', u'Bloc', u'Mtab']	({)	
+189	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Bkpr', u'Ptbr', u'Bloc']	({)	0
+190	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Bkpr', u'Ptbr', u'}', u'Lstr', u'Kdec', u'{']	({)	15 { Kdec Lstr }
+191	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Bkpr', u'Ptbr', u'}', u'Lstr', u'Kdec']	(ID)	
+192	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Bkpr', u'Ptbr', u'}', u'Lstr']	(ID)	0
+193	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Bkpr', u'Ptbr', u'}', u'Ltem', u'Lang']	(ID)	18 Lang Ltem
+194	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Bkpr', u'Ptbr', u'}', u'Ltem', u'Asla']	(ID)	23 Asla
+195	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Bkpr', u'Ptbr', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Expr', u'=', u'Push', u'ID', u'Push', u'Mexp']	(ID)	24 Mexp Push ID Push = Expr Upex Pcsk ;
+196	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Bkpr', u'Ptbr', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Expr', u'=', u'Push', u'ID', u'Push']	(ID)	0
+197	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Bkpr', u'Ptbr', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Expr', u'=', u'Push', u'ID']	(ID)	0
+198	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Bkpr', u'Ptbr', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Expr', u'=', u'Push']	(=)	
+199	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Bkpr', u'Ptbr', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Expr', u'=']	(=)	0
+200	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Bkpr', u'Ptbr', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Expr']	(ID)	
+201	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Bkpr', u'Ptbr', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Atem', u'Aexp']	(ID)	30 Aexp Atem
+202	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Bkpr', u'Ptbr', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Atem', u'Itmp', u'Item']	(ID)	37 Item Itmp
+203	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Bkpr', u'Ptbr', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Atem', u'Itmp', u'Ftem', u'Fact']	(ID)	40 Fact Ftem
+204	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Bkpr', u'Ptbr', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Atem', u'Itmp', u'Ftem', u'FTYP', u'ID', u'Push']	(ID)	45 Push ID FTYP
+205	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Bkpr', u'Ptbr', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Atem', u'Itmp', u'Ftem', u'FTYP', u'ID']	(ID)	0
+206	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Bkpr', u'Ptbr', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Atem', u'Itmp', u'Ftem', u'FTYP']	(;)	
+207	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Bkpr', u'Ptbr', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Atem', u'Itmp', u'Ftem']	(;)	0
+208	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Bkpr', u'Ptbr', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Atem', u'Itmp']	(;)	0
+209	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Bkpr', u'Ptbr', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Atem']	(;)	0
+210	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Bkpr', u'Ptbr', u'}', u'Ltem', u';', u'Pcsk', u'Upex']	(;)	0
+211	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Bkpr', u'Ptbr', u'}', u'Ltem', u';', u'Pcsk']	(;)	0
+212	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Bkpr', u'Ptbr', u'}', u'Ltem', u';']	(;)	0
+213	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Bkpr', u'Ptbr', u'}', u'Ltem']	(})	
+214	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Bkpr', u'Ptbr', u'}']	(})	0
+215	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Bkpr', u'Ptbr']	(while)	
+216	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Bkpr']	(while)	0
+217	['#', u'Stem', u'Epro', u'}', u'Ltem']	(while)	0
+218	['#', u'Stem', u'Epro', u'}', u'Lstr']	(while)	19 Lstr
+219	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Lang']	(while)	18 Lang Ltem
+220	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Whla']	(while)	21 Whla
+221	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Jwhl', u'Bloc', u')', u'Jexp', u'Expr', u'Mexp', u'(', u'Mtab', u'while']	(while)	27 while Mtab ( Mexp Expr Jexp ) Bloc Jwhl
+222	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Jwhl', u'Bloc', u')', u'Jexp', u'Expr', u'Mexp', u'(', u'Mtab']	(()	
+223	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Jwhl', u'Bloc', u')', u'Jexp', u'Expr', u'Mexp', u'(']	(()	0
+224	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Jwhl', u'Bloc', u')', u'Jexp', u'Expr', u'Mexp']	(ID)	
+225	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Jwhl', u'Bloc', u')', u'Jexp', u'Expr']	(ID)	0
+226	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Jwhl', u'Bloc', u')', u'Jexp', u'Atem', u'Aexp']	(ID)	30 Aexp Atem
+227	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Jwhl', u'Bloc', u')', u'Jexp', u'Atem', u'Itmp', u'Item']	(ID)	37 Item Itmp
+228	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Jwhl', u'Bloc', u')', u'Jexp', u'Atem', u'Itmp', u'Ftem', u'Fact']	(ID)	40 Fact Ftem
+229	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Jwhl', u'Bloc', u')', u'Jexp', u'Atem', u'Itmp', u'Ftem', u'FTYP', u'ID', u'Push']	(ID)	45 Push ID FTYP
+230	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Jwhl', u'Bloc', u')', u'Jexp', u'Atem', u'Itmp', u'Ftem', u'FTYP', u'ID']	(ID)	0
+231	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Jwhl', u'Bloc', u')', u'Jexp', u'Atem', u'Itmp', u'Ftem', u'FTYP']	(<=)	
+232	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Jwhl', u'Bloc', u')', u'Jexp', u'Atem', u'Itmp', u'Ftem']	(<=)	0
+233	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Jwhl', u'Bloc', u')', u'Jexp', u'Atem', u'Itmp']	(<=)	0
+234	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Jwhl', u'Bloc', u')', u'Jexp', u'Atem']	(<=)	0
+235	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Jwhl', u'Bloc', u')', u'Jexp', u'Expr', u'<=', u'Push']	(<=)	32 Push <= Expr
+236	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Jwhl', u'Bloc', u')', u'Jexp', u'Expr', u'<=']	(<=)	0
+237	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Jwhl', u'Bloc', u')', u'Jexp', u'Expr']	(NUM)	
+238	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Jwhl', u'Bloc', u')', u'Jexp', u'Atem', u'Aexp']	(NUM)	30 Aexp Atem
+239	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Jwhl', u'Bloc', u')', u'Jexp', u'Atem', u'Itmp', u'Item']	(NUM)	37 Item Itmp
+240	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Jwhl', u'Bloc', u')', u'Jexp', u'Atem', u'Itmp', u'Ftem', u'Fact']	(NUM)	40 Fact Ftem
+241	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Jwhl', u'Bloc', u')', u'Jexp', u'Atem', u'Itmp', u'Ftem', u'NUM', u'Push']	(NUM)	43 Push NUM
+242	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Jwhl', u'Bloc', u')', u'Jexp', u'Atem', u'Itmp', u'Ftem', u'NUM']	(NUM)	0
+243	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Jwhl', u'Bloc', u')', u'Jexp', u'Atem', u'Itmp', u'Ftem']	())	
+244	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Jwhl', u'Bloc', u')', u'Jexp', u'Atem', u'Itmp']	())	0
+245	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Jwhl', u'Bloc', u')', u'Jexp', u'Atem']	())	0
+246	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Jwhl', u'Bloc', u')', u'Jexp']	())	0
+247	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Jwhl', u'Bloc', u')']	())	0
+248	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Jwhl', u'Bloc']	({)	
+249	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Jwhl', u'}', u'Lstr', u'Kdec', u'{']	({)	15 { Kdec Lstr }
+250	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Jwhl', u'}', u'Lstr', u'Kdec']	(ID)	
+251	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Jwhl', u'}', u'Lstr']	(ID)	0
+252	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Jwhl', u'}', u'Ltem', u'Lang']	(ID)	18 Lang Ltem
+253	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Jwhl', u'}', u'Ltem', u'Asla']	(ID)	23 Asla
+254	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Jwhl', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Expr', u'=', u'Push', u'ID', u'Push', u'Mexp']	(ID)	24 Mexp Push ID Push = Expr Upex Pcsk ;
+255	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Jwhl', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Expr', u'=', u'Push', u'ID', u'Push']	(ID)	0
+256	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Jwhl', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Expr', u'=', u'Push', u'ID']	(ID)	0
+257	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Jwhl', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Expr', u'=', u'Push']	(=)	
+258	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Jwhl', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Expr', u'=']	(=)	0
+259	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Jwhl', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Expr']	(ID)	
+260	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Jwhl', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Atem', u'Aexp']	(ID)	30 Aexp Atem
+261	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Jwhl', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Atem', u'Itmp', u'Item']	(ID)	37 Item Itmp
+262	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Jwhl', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Atem', u'Itmp', u'Ftem', u'Fact']	(ID)	40 Fact Ftem
+263	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Jwhl', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Atem', u'Itmp', u'Ftem', u'FTYP', u'ID', u'Push']	(ID)	45 Push ID FTYP
+264	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Jwhl', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Atem', u'Itmp', u'Ftem', u'FTYP', u'ID']	(ID)	0
+265	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Jwhl', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Atem', u'Itmp', u'Ftem', u'FTYP']	(*)	
+266	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Jwhl', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Atem', u'Itmp', u'Ftem']	(*)	0
+267	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Jwhl', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Atem', u'Itmp', u'Upex', u'Item', u'*', u'Push']	(*)	41 Push * Item Upex
+268	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Jwhl', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Atem', u'Itmp', u'Upex', u'Item', u'*']	(*)	0
+269	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Jwhl', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Atem', u'Itmp', u'Upex', u'Item']	(NUM)	
+270	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Jwhl', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Atem', u'Itmp', u'Upex', u'Ftem', u'Fact']	(NUM)	40 Fact Ftem
+271	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Jwhl', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Atem', u'Itmp', u'Upex', u'Ftem', u'NUM', u'Push']	(NUM)	43 Push NUM
+272	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Jwhl', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Atem', u'Itmp', u'Upex', u'Ftem', u'NUM']	(NUM)	0
+273	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Jwhl', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Atem', u'Itmp', u'Upex', u'Ftem']	(;)	
+274	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Jwhl', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Atem', u'Itmp', u'Upex']	(;)	0
+275	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Jwhl', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Atem', u'Itmp']	(;)	0
+276	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Jwhl', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Atem']	(;)	0
+277	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Jwhl', u'}', u'Ltem', u';', u'Pcsk', u'Upex']	(;)	0
+278	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Jwhl', u'}', u'Ltem', u';', u'Pcsk']	(;)	0
+279	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Jwhl', u'}', u'Ltem', u';']	(;)	0
+280	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Jwhl', u'}', u'Ltem']	(})	
+281	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Jwhl', u'}']	(})	0
+282	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Jwhl']	(return)	
+283	['#', u'Stem', u'Epro', u'}', u'Ltem']	(return)	0
+284	['#', u'Stem', u'Epro', u'}', u'Lstr']	(return)	19 Lstr
+285	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Lang']	(return)	18 Lang Ltem
+286	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Rela']	(return)	22 Rela
+287	['#', u'Stem', u'Epro', u'}', u'Ltem', u';', u'Endr', u'Rtem', u'return']	(return)	25 return Rtem Endr ;
+288	['#', u'Stem', u'Epro', u'}', u'Ltem', u';', u'Endr', u'Rtem']	(ID)	
+289	['#', u'Stem', u'Epro', u'}', u'Ltem', u';', u'Endr', u'Expr']	(ID)	26 Expr
+290	['#', u'Stem', u'Epro', u'}', u'Ltem', u';', u'Endr', u'Atem', u'Aexp']	(ID)	30 Aexp Atem
+291	['#', u'Stem', u'Epro', u'}', u'Ltem', u';', u'Endr', u'Atem', u'Itmp', u'Item']	(ID)	37 Item Itmp
+292	['#', u'Stem', u'Epro', u'}', u'Ltem', u';', u'Endr', u'Atem', u'Itmp', u'Ftem', u'Fact']	(ID)	40 Fact Ftem
+293	['#', u'Stem', u'Epro', u'}', u'Ltem', u';', u'Endr', u'Atem', u'Itmp', u'Ftem', u'FTYP', u'ID', u'Push']	(ID)	45 Push ID FTYP
+294	['#', u'Stem', u'Epro', u'}', u'Ltem', u';', u'Endr', u'Atem', u'Itmp', u'Ftem', u'FTYP', u'ID']	(ID)	0
+295	['#', u'Stem', u'Epro', u'}', u'Ltem', u';', u'Endr', u'Atem', u'Itmp', u'Ftem', u'FTYP']	(;)	
+296	['#', u'Stem', u'Epro', u'}', u'Ltem', u';', u'Endr', u'Atem', u'Itmp', u'Ftem']	(;)	0
+297	['#', u'Stem', u'Epro', u'}', u'Ltem', u';', u'Endr', u'Atem', u'Itmp']	(;)	0
+298	['#', u'Stem', u'Epro', u'}', u'Ltem', u';', u'Endr', u'Atem']	(;)	0
+299	['#', u'Stem', u'Epro', u'}', u'Ltem', u';', u'Endr']	(;)	0
+300	['#', u'Stem', u'Epro', u'}', u'Ltem', u';']	(;)	0
+301	['#', u'Stem', u'Epro', u'}', u'Ltem']	(})	
+302	['#', u'Stem', u'Epro', u'}']	(})	0
+303	['#', u'Stem', u'Epro']	(int)	
+304	['#', u'Stem']	(int)	0
+305	['#', u'Dstr']	(int)	3 Dstr
+306	['#', u'Stem', u'Decl']	(int)	2 Decl Stem
+307	['#', u'Stem', u'Type', u'ID', u'int']	(int)	4 int ID Type
+308	['#', u'Stem', u'Type', u'ID']	(ID)	
+309	['#', u'Stem', u'Type']	(()	
+310	['#', u'Stem', u'Func']	(()	7 Func
+311	['#', u'Stem', u'Epro', u'Bloc', u')', u'Pnum', u'Vpam', u'(', u'Mpro']	(()	9 Mpro ( Vpam Pnum ) Bloc Epro
+312	['#', u'Stem', u'Epro', u'Bloc', u')', u'Pnum', u'Vpam', u'(']	(()	0
+313	['#', u'Stem', u'Epro', u'Bloc', u')', u'Pnum', u'Vpam']	(int)	
+314	['#', u'Stem', u'Epro', u'Bloc', u')', u'Pnum', u'Pist']	(int)	10 Pist
+315	['#', u'Stem', u'Epro', u'Bloc', u')', u'Pnum', u'Ptem', u'Parm']	(int)	12 Parm Ptem
+316	['#', u'Stem', u'Epro', u'Bloc', u')', u'Pnum', u'Ptem', u'Advr', u'ID', u'int']	(int)	14 int ID Advr
+317	['#', u'Stem', u'Epro', u'Bloc', u')', u'Pnum', u'Ptem', u'Advr', u'ID']	(ID)	
+318	['#', u'Stem', u'Epro', u'Bloc', u')', u'Pnum', u'Ptem', u'Advr']	())	
+319	['#', u'Stem', u'Epro', u'Bloc', u')', u'Pnum', u'Ptem']	())	0
+320	['#', u'Stem', u'Epro', u'Bloc', u')', u'Pnum']	())	0
+321	['#', u'Stem', u'Epro', u'Bloc', u')']	())	0
+322	['#', u'Stem', u'Epro', u'Bloc']	({)	
+323	['#', u'Stem', u'Epro', u'}', u'Lstr', u'Kdec', u'{']	({)	15 { Kdec Lstr }
+324	['#', u'Stem', u'Epro', u'}', u'Lstr', u'Kdec']	(ID)	
+325	['#', u'Stem', u'Epro', u'}', u'Lstr']	(ID)	0
+326	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Lang']	(ID)	18 Lang Ltem
+327	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Asla']	(ID)	23 Asla
+328	['#', u'Stem', u'Epro', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Expr', u'=', u'Push', u'ID', u'Push', u'Mexp']	(ID)	24 Mexp Push ID Push = Expr Upex Pcsk ;
+329	['#', u'Stem', u'Epro', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Expr', u'=', u'Push', u'ID', u'Push']	(ID)	0
+330	['#', u'Stem', u'Epro', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Expr', u'=', u'Push', u'ID']	(ID)	0
+331	['#', u'Stem', u'Epro', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Expr', u'=', u'Push']	(=)	
+332	['#', u'Stem', u'Epro', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Expr', u'=']	(=)	0
+333	['#', u'Stem', u'Epro', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Expr']	(ID)	
+334	['#', u'Stem', u'Epro', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Atem', u'Aexp']	(ID)	30 Aexp Atem
+335	['#', u'Stem', u'Epro', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Atem', u'Itmp', u'Item']	(ID)	37 Item Itmp
+336	['#', u'Stem', u'Epro', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Atem', u'Itmp', u'Ftem', u'Fact']	(ID)	40 Fact Ftem
+337	['#', u'Stem', u'Epro', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Atem', u'Itmp', u'Ftem', u'FTYP', u'ID', u'Push']	(ID)	45 Push ID FTYP
+338	['#', u'Stem', u'Epro', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Atem', u'Itmp', u'Ftem', u'FTYP', u'ID']	(ID)	0
+339	['#', u'Stem', u'Epro', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Atem', u'Itmp', u'Ftem', u'FTYP']	(+)	
+340	['#', u'Stem', u'Epro', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Atem', u'Itmp', u'Ftem']	(+)	0
+341	['#', u'Stem', u'Epro', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Atem', u'Itmp']	(+)	0
+342	['#', u'Stem', u'Epro', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Atem', u'Upex', u'Aexp', u'+', u'Push']	(+)	38 Push + Aexp Upex
+343	['#', u'Stem', u'Epro', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Atem', u'Upex', u'Aexp', u'+']	(+)	0
+344	['#', u'Stem', u'Epro', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Atem', u'Upex', u'Aexp']	(NUM)	
+345	['#', u'Stem', u'Epro', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Atem', u'Upex', u'Itmp', u'Item']	(NUM)	37 Item Itmp
+346	['#', u'Stem', u'Epro', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Atem', u'Upex', u'Itmp', u'Ftem', u'Fact']	(NUM)	40 Fact Ftem
+347	['#', u'Stem', u'Epro', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Atem', u'Upex', u'Itmp', u'Ftem', u'NUM', u'Push']	(NUM)	43 Push NUM
+348	['#', u'Stem', u'Epro', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Atem', u'Upex', u'Itmp', u'Ftem', u'NUM']	(NUM)	0
+349	['#', u'Stem', u'Epro', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Atem', u'Upex', u'Itmp', u'Ftem']	(;)	
+350	['#', u'Stem', u'Epro', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Atem', u'Upex', u'Itmp']	(;)	0
+351	['#', u'Stem', u'Epro', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Atem', u'Upex']	(;)	0
+352	['#', u'Stem', u'Epro', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Atem']	(;)	0
+353	['#', u'Stem', u'Epro', u'}', u'Ltem', u';', u'Pcsk', u'Upex']	(;)	0
+354	['#', u'Stem', u'Epro', u'}', u'Ltem', u';', u'Pcsk']	(;)	0
+355	['#', u'Stem', u'Epro', u'}', u'Ltem', u';']	(;)	0
+356	['#', u'Stem', u'Epro', u'}', u'Ltem']	(return)	
+357	['#', u'Stem', u'Epro', u'}', u'Lstr']	(return)	19 Lstr
+358	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Lang']	(return)	18 Lang Ltem
+359	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Rela']	(return)	22 Rela
+360	['#', u'Stem', u'Epro', u'}', u'Ltem', u';', u'Endr', u'Rtem', u'return']	(return)	25 return Rtem Endr ;
+361	['#', u'Stem', u'Epro', u'}', u'Ltem', u';', u'Endr', u'Rtem']	(ID)	
+362	['#', u'Stem', u'Epro', u'}', u'Ltem', u';', u'Endr', u'Expr']	(ID)	26 Expr
+363	['#', u'Stem', u'Epro', u'}', u'Ltem', u';', u'Endr', u'Atem', u'Aexp']	(ID)	30 Aexp Atem
+364	['#', u'Stem', u'Epro', u'}', u'Ltem', u';', u'Endr', u'Atem', u'Itmp', u'Item']	(ID)	37 Item Itmp
+365	['#', u'Stem', u'Epro', u'}', u'Ltem', u';', u'Endr', u'Atem', u'Itmp', u'Ftem', u'Fact']	(ID)	40 Fact Ftem
+366	['#', u'Stem', u'Epro', u'}', u'Ltem', u';', u'Endr', u'Atem', u'Itmp', u'Ftem', u'FTYP', u'ID', u'Push']	(ID)	45 Push ID FTYP
+367	['#', u'Stem', u'Epro', u'}', u'Ltem', u';', u'Endr', u'Atem', u'Itmp', u'Ftem', u'FTYP', u'ID']	(ID)	0
+368	['#', u'Stem', u'Epro', u'}', u'Ltem', u';', u'Endr', u'Atem', u'Itmp', u'Ftem', u'FTYP']	(*)	
+369	['#', u'Stem', u'Epro', u'}', u'Ltem', u';', u'Endr', u'Atem', u'Itmp', u'Ftem']	(*)	0
+370	['#', u'Stem', u'Epro', u'}', u'Ltem', u';', u'Endr', u'Atem', u'Itmp', u'Upex', u'Item', u'*', u'Push']	(*)	41 Push * Item Upex
+371	['#', u'Stem', u'Epro', u'}', u'Ltem', u';', u'Endr', u'Atem', u'Itmp', u'Upex', u'Item', u'*']	(*)	0
+372	['#', u'Stem', u'Epro', u'}', u'Ltem', u';', u'Endr', u'Atem', u'Itmp', u'Upex', u'Item']	(NUM)	
+373	['#', u'Stem', u'Epro', u'}', u'Ltem', u';', u'Endr', u'Atem', u'Itmp', u'Upex', u'Ftem', u'Fact']	(NUM)	40 Fact Ftem
+374	['#', u'Stem', u'Epro', u'}', u'Ltem', u';', u'Endr', u'Atem', u'Itmp', u'Upex', u'Ftem', u'NUM', u'Push']	(NUM)	43 Push NUM
+375	['#', u'Stem', u'Epro', u'}', u'Ltem', u';', u'Endr', u'Atem', u'Itmp', u'Upex', u'Ftem', u'NUM']	(NUM)	0
+376	['#', u'Stem', u'Epro', u'}', u'Ltem', u';', u'Endr', u'Atem', u'Itmp', u'Upex', u'Ftem']	(;)	
+377	['#', u'Stem', u'Epro', u'}', u'Ltem', u';', u'Endr', u'Atem', u'Itmp', u'Upex']	(;)	0
+378	['#', u'Stem', u'Epro', u'}', u'Ltem', u';', u'Endr', u'Atem', u'Itmp']	(;)	0
+379	['#', u'Stem', u'Epro', u'}', u'Ltem', u';', u'Endr', u'Atem']	(;)	0
+380	['#', u'Stem', u'Epro', u'}', u'Ltem', u';', u'Endr']	(;)	0
+381	['#', u'Stem', u'Epro', u'}', u'Ltem', u';']	(;)	0
+382	['#', u'Stem', u'Epro', u'}', u'Ltem']	(})	
+383	['#', u'Stem', u'Epro', u'}']	(})	0
+384	['#', u'Stem', u'Epro']	(void)	
+385	['#', u'Stem']	(void)	0
+386	['#', u'Dstr']	(void)	3 Dstr
+387	['#', u'Stem', u'Decl']	(void)	2 Decl Stem
+388	['#', u'Stem', u'Func', u'ID', u'void']	(void)	5 void ID Func
+389	['#', u'Stem', u'Func', u'ID']	(ID)	
+390	['#', u'Stem', u'Func']	(()	
+391	['#', u'Stem', u'Epro', u'Bloc', u')', u'Pnum', u'Vpam', u'(', u'Mpro']	(()	9 Mpro ( Vpam Pnum ) Bloc Epro
+392	['#', u'Stem', u'Epro', u'Bloc', u')', u'Pnum', u'Vpam', u'(']	(()	0
+393	['#', u'Stem', u'Epro', u'Bloc', u')', u'Pnum', u'Vpam']	(void)	
+394	['#', u'Stem', u'Epro', u'Bloc', u')', u'Pnum', u'void']	(void)	11 void
+395	['#', u'Stem', u'Epro', u'Bloc', u')', u'Pnum']	())	
+396	['#', u'Stem', u'Epro', u'Bloc', u')']	())	0
+397	['#', u'Stem', u'Epro', u'Bloc']	({)	
+398	['#', u'Stem', u'Epro', u'}', u'Lstr', u'Kdec', u'{']	({)	15 { Kdec Lstr }
+399	['#', u'Stem', u'Epro', u'}', u'Lstr', u'Kdec']	(int)	
+400	['#', u'Stem', u'Epro', u'}', u'Lstr', u'Kdec', u';', u'Advr', u'Kvde']	(int)	16 Kvde Advr ; Kdec
+401	['#', u'Stem', u'Epro', u'}', u'Lstr', u'Kdec', u';', u'Advr', u'ID', u'int']	(int)	17 int ID
+402	['#', u'Stem', u'Epro', u'}', u'Lstr', u'Kdec', u';', u'Advr', u'ID']	(ID)	
+403	['#', u'Stem', u'Epro', u'}', u'Lstr', u'Kdec', u';', u'Advr']	(;)	
+404	['#', u'Stem', u'Epro', u'}', u'Lstr', u'Kdec', u';']	(;)	0
+405	['#', u'Stem', u'Epro', u'}', u'Lstr', u'Kdec']	(int)	
+406	['#', u'Stem', u'Epro', u'}', u'Lstr', u'Kdec', u';', u'Advr', u'Kvde']	(int)	16 Kvde Advr ; Kdec
+407	['#', u'Stem', u'Epro', u'}', u'Lstr', u'Kdec', u';', u'Advr', u'ID', u'int']	(int)	17 int ID
+408	['#', u'Stem', u'Epro', u'}', u'Lstr', u'Kdec', u';', u'Advr', u'ID']	(ID)	
+409	['#', u'Stem', u'Epro', u'}', u'Lstr', u'Kdec', u';', u'Advr']	(;)	
+410	['#', u'Stem', u'Epro', u'}', u'Lstr', u'Kdec', u';']	(;)	0
+411	['#', u'Stem', u'Epro', u'}', u'Lstr', u'Kdec']	(int)	
+412	['#', u'Stem', u'Epro', u'}', u'Lstr', u'Kdec', u';', u'Advr', u'Kvde']	(int)	16 Kvde Advr ; Kdec
+413	['#', u'Stem', u'Epro', u'}', u'Lstr', u'Kdec', u';', u'Advr', u'ID', u'int']	(int)	17 int ID
+414	['#', u'Stem', u'Epro', u'}', u'Lstr', u'Kdec', u';', u'Advr', u'ID']	(ID)	
+415	['#', u'Stem', u'Epro', u'}', u'Lstr', u'Kdec', u';', u'Advr']	(;)	
+416	['#', u'Stem', u'Epro', u'}', u'Lstr', u'Kdec', u';']	(;)	0
+417	['#', u'Stem', u'Epro', u'}', u'Lstr', u'Kdec']	(ID)	
+418	['#', u'Stem', u'Epro', u'}', u'Lstr']	(ID)	0
+419	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Lang']	(ID)	18 Lang Ltem
+420	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Asla']	(ID)	23 Asla
+421	['#', u'Stem', u'Epro', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Expr', u'=', u'Push', u'ID', u'Push', u'Mexp']	(ID)	24 Mexp Push ID Push = Expr Upex Pcsk ;
+422	['#', u'Stem', u'Epro', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Expr', u'=', u'Push', u'ID', u'Push']	(ID)	0
+423	['#', u'Stem', u'Epro', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Expr', u'=', u'Push', u'ID']	(ID)	0
+424	['#', u'Stem', u'Epro', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Expr', u'=', u'Push']	(=)	
+425	['#', u'Stem', u'Epro', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Expr', u'=']	(=)	0
+426	['#', u'Stem', u'Epro', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Expr']	(NUM)	
+427	['#', u'Stem', u'Epro', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Atem', u'Aexp']	(NUM)	30 Aexp Atem
+428	['#', u'Stem', u'Epro', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Atem', u'Itmp', u'Item']	(NUM)	37 Item Itmp
+429	['#', u'Stem', u'Epro', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Atem', u'Itmp', u'Ftem', u'Fact']	(NUM)	40 Fact Ftem
+430	['#', u'Stem', u'Epro', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Atem', u'Itmp', u'Ftem', u'NUM', u'Push']	(NUM)	43 Push NUM
+431	['#', u'Stem', u'Epro', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Atem', u'Itmp', u'Ftem', u'NUM']	(NUM)	0
+432	['#', u'Stem', u'Epro', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Atem', u'Itmp', u'Ftem']	(;)	
+433	['#', u'Stem', u'Epro', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Atem', u'Itmp']	(;)	0
+434	['#', u'Stem', u'Epro', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Atem']	(;)	0
+435	['#', u'Stem', u'Epro', u'}', u'Ltem', u';', u'Pcsk', u'Upex']	(;)	0
+436	['#', u'Stem', u'Epro', u'}', u'Ltem', u';', u'Pcsk']	(;)	0
+437	['#', u'Stem', u'Epro', u'}', u'Ltem', u';']	(;)	0
+438	['#', u'Stem', u'Epro', u'}', u'Ltem']	(ID)	
+439	['#', u'Stem', u'Epro', u'}', u'Lstr']	(ID)	19 Lstr
+440	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Lang']	(ID)	18 Lang Ltem
+441	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Asla']	(ID)	23 Asla
+442	['#', u'Stem', u'Epro', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Expr', u'=', u'Push', u'ID', u'Push', u'Mexp']	(ID)	24 Mexp Push ID Push = Expr Upex Pcsk ;
+443	['#', u'Stem', u'Epro', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Expr', u'=', u'Push', u'ID', u'Push']	(ID)	0
+444	['#', u'Stem', u'Epro', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Expr', u'=', u'Push', u'ID']	(ID)	0
+445	['#', u'Stem', u'Epro', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Expr', u'=', u'Push']	(=)	
+446	['#', u'Stem', u'Epro', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Expr', u'=']	(=)	0
+447	['#', u'Stem', u'Epro', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Expr']	(NUM)	
+448	['#', u'Stem', u'Epro', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Atem', u'Aexp']	(NUM)	30 Aexp Atem
+449	['#', u'Stem', u'Epro', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Atem', u'Itmp', u'Item']	(NUM)	37 Item Itmp
+450	['#', u'Stem', u'Epro', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Atem', u'Itmp', u'Ftem', u'Fact']	(NUM)	40 Fact Ftem
+451	['#', u'Stem', u'Epro', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Atem', u'Itmp', u'Ftem', u'NUM', u'Push']	(NUM)	43 Push NUM
+452	['#', u'Stem', u'Epro', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Atem', u'Itmp', u'Ftem', u'NUM']	(NUM)	0
+453	['#', u'Stem', u'Epro', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Atem', u'Itmp', u'Ftem']	(;)	
+454	['#', u'Stem', u'Epro', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Atem', u'Itmp']	(;)	0
+455	['#', u'Stem', u'Epro', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Atem']	(;)	0
+456	['#', u'Stem', u'Epro', u'}', u'Ltem', u';', u'Pcsk', u'Upex']	(;)	0
+457	['#', u'Stem', u'Epro', u'}', u'Ltem', u';', u'Pcsk']	(;)	0
+458	['#', u'Stem', u'Epro', u'}', u'Ltem', u';']	(;)	0
+459	['#', u'Stem', u'Epro', u'}', u'Ltem']	(ID)	
+460	['#', u'Stem', u'Epro', u'}', u'Lstr']	(ID)	19 Lstr
+461	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Lang']	(ID)	18 Lang Ltem
+462	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Asla']	(ID)	23 Asla
+463	['#', u'Stem', u'Epro', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Expr', u'=', u'Push', u'ID', u'Push', u'Mexp']	(ID)	24 Mexp Push ID Push = Expr Upex Pcsk ;
+464	['#', u'Stem', u'Epro', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Expr', u'=', u'Push', u'ID', u'Push']	(ID)	0
+465	['#', u'Stem', u'Epro', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Expr', u'=', u'Push', u'ID']	(ID)	0
+466	['#', u'Stem', u'Epro', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Expr', u'=', u'Push']	(=)	
+467	['#', u'Stem', u'Epro', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Expr', u'=']	(=)	0
+468	['#', u'Stem', u'Epro', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Expr']	(NUM)	
+469	['#', u'Stem', u'Epro', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Atem', u'Aexp']	(NUM)	30 Aexp Atem
+470	['#', u'Stem', u'Epro', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Atem', u'Itmp', u'Item']	(NUM)	37 Item Itmp
+471	['#', u'Stem', u'Epro', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Atem', u'Itmp', u'Ftem', u'Fact']	(NUM)	40 Fact Ftem
+472	['#', u'Stem', u'Epro', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Atem', u'Itmp', u'Ftem', u'NUM', u'Push']	(NUM)	43 Push NUM
+473	['#', u'Stem', u'Epro', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Atem', u'Itmp', u'Ftem', u'NUM']	(NUM)	0
+474	['#', u'Stem', u'Epro', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Atem', u'Itmp', u'Ftem']	(;)	
+475	['#', u'Stem', u'Epro', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Atem', u'Itmp']	(;)	0
+476	['#', u'Stem', u'Epro', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Atem']	(;)	0
+477	['#', u'Stem', u'Epro', u'}', u'Ltem', u';', u'Pcsk', u'Upex']	(;)	0
+478	['#', u'Stem', u'Epro', u'}', u'Ltem', u';', u'Pcsk']	(;)	0
+479	['#', u'Stem', u'Epro', u'}', u'Ltem', u';']	(;)	0
+480	['#', u'Stem', u'Epro', u'}', u'Ltem']	(ID)	
+481	['#', u'Stem', u'Epro', u'}', u'Lstr']	(ID)	19 Lstr
+482	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Lang']	(ID)	18 Lang Ltem
+483	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Asla']	(ID)	23 Asla
+484	['#', u'Stem', u'Epro', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Expr', u'=', u'Push', u'ID', u'Push', u'Mexp']	(ID)	24 Mexp Push ID Push = Expr Upex Pcsk ;
+485	['#', u'Stem', u'Epro', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Expr', u'=', u'Push', u'ID', u'Push']	(ID)	0
+486	['#', u'Stem', u'Epro', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Expr', u'=', u'Push', u'ID']	(ID)	0
+487	['#', u'Stem', u'Epro', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Expr', u'=', u'Push']	(=)	
+488	['#', u'Stem', u'Epro', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Expr', u'=']	(=)	0
+489	['#', u'Stem', u'Epro', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Expr']	(ID)	
+490	['#', u'Stem', u'Epro', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Atem', u'Aexp']	(ID)	30 Aexp Atem
+491	['#', u'Stem', u'Epro', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Atem', u'Itmp', u'Item']	(ID)	37 Item Itmp
+492	['#', u'Stem', u'Epro', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Atem', u'Itmp', u'Ftem', u'Fact']	(ID)	40 Fact Ftem
+493	['#', u'Stem', u'Epro', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Atem', u'Itmp', u'Ftem', u'FTYP', u'ID', u'Push']	(ID)	45 Push ID FTYP
+494	['#', u'Stem', u'Epro', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Atem', u'Itmp', u'Ftem', u'FTYP', u'ID']	(ID)	0
+495	['#', u'Stem', u'Epro', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Atem', u'Itmp', u'Ftem', u'FTYP']	(()	
+496	['#', u'Stem', u'Epro', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Atem', u'Itmp', u'Ftem', u'Call']	(()	46 Call
+497	['#', u'Stem', u'Epro', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Atem', u'Itmp', u'Ftem', u')', u'Upsk', u'Rist', u'(', u'Mpsk']	(()	47 Mpsk ( Rist Upsk )
+498	['#', u'Stem', u'Epro', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Atem', u'Itmp', u'Ftem', u')', u'Upsk', u'Rist', u'(']	(()	0
+499	['#', u'Stem', u'Epro', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Atem', u'Itmp', u'Ftem', u')', u'Upsk', u'Rist']	(ID)	
+500	['#', u'Stem', u'Epro', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Atem', u'Itmp', u'Ftem', u')', u'Upsk', u'Rltm', u'Expr']	(ID)	49 Expr Rltm
+501	['#', u'Stem', u'Epro', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Atem', u'Itmp', u'Ftem', u')', u'Upsk', u'Rltm', u'Atem', u'Aexp']	(ID)	30 Aexp Atem
+502	['#', u'Stem', u'Epro', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Atem', u'Itmp', u'Ftem', u')', u'Upsk', u'Rltm', u'Atem', u'Itmp', u'Item']	(ID)	37 Item Itmp
+503	['#', u'Stem', u'Epro', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Atem', u'Itmp', u'Ftem', u')', u'Upsk', u'Rltm', u'Atem', u'Itmp', u'Ftem', u'Fact']	(ID)	40 Fact Ftem
+504	['#', u'Stem', u'Epro', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Atem', u'Itmp', u'Ftem', u')', u'Upsk', u'Rltm', u'Atem', u'Itmp', u'Ftem', u'FTYP', u'ID', u'Push']	(ID)	45 Push ID FTYP
+505	['#', u'Stem', u'Epro', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Atem', u'Itmp', u'Ftem', u')', u'Upsk', u'Rltm', u'Atem', u'Itmp', u'Ftem', u'FTYP', u'ID']	(ID)	0
+506	['#', u'Stem', u'Epro', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Atem', u'Itmp', u'Ftem', u')', u'Upsk', u'Rltm', u'Atem', u'Itmp', u'Ftem', u'FTYP']	(,)	
+507	['#', u'Stem', u'Epro', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Atem', u'Itmp', u'Ftem', u')', u'Upsk', u'Rltm', u'Atem', u'Itmp', u'Ftem']	(,)	0
+508	['#', u'Stem', u'Epro', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Atem', u'Itmp', u'Ftem', u')', u'Upsk', u'Rltm', u'Atem', u'Itmp']	(,)	0
+509	['#', u'Stem', u'Epro', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Atem', u'Itmp', u'Ftem', u')', u'Upsk', u'Rltm', u'Atem']	(,)	0
+510	['#', u'Stem', u'Epro', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Atem', u'Itmp', u'Ftem', u')', u'Upsk', u'Rltm']	(,)	0
+511	['#', u'Stem', u'Epro', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Atem', u'Itmp', u'Ftem', u')', u'Upsk', u'Rist', u',', u'Upsk']	(,)	50 Upsk , Rist
+512	['#', u'Stem', u'Epro', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Atem', u'Itmp', u'Ftem', u')', u'Upsk', u'Rist', u',']	(,)	0
+513	['#', u'Stem', u'Epro', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Atem', u'Itmp', u'Ftem', u')', u'Upsk', u'Rist']	(ID)	
+514	['#', u'Stem', u'Epro', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Atem', u'Itmp', u'Ftem', u')', u'Upsk', u'Rltm', u'Expr']	(ID)	49 Expr Rltm
+515	['#', u'Stem', u'Epro', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Atem', u'Itmp', u'Ftem', u')', u'Upsk', u'Rltm', u'Atem', u'Aexp']	(ID)	30 Aexp Atem
+516	['#', u'Stem', u'Epro', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Atem', u'Itmp', u'Ftem', u')', u'Upsk', u'Rltm', u'Atem', u'Itmp', u'Item']	(ID)	37 Item Itmp
+517	['#', u'Stem', u'Epro', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Atem', u'Itmp', u'Ftem', u')', u'Upsk', u'Rltm', u'Atem', u'Itmp', u'Ftem', u'Fact']	(ID)	40 Fact Ftem
+518	['#', u'Stem', u'Epro', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Atem', u'Itmp', u'Ftem', u')', u'Upsk', u'Rltm', u'Atem', u'Itmp', u'Ftem', u'FTYP', u'ID', u'Push']	(ID)	45 Push ID FTYP
+519	['#', u'Stem', u'Epro', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Atem', u'Itmp', u'Ftem', u')', u'Upsk', u'Rltm', u'Atem', u'Itmp', u'Ftem', u'FTYP', u'ID']	(ID)	0
+520	['#', u'Stem', u'Epro', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Atem', u'Itmp', u'Ftem', u')', u'Upsk', u'Rltm', u'Atem', u'Itmp', u'Ftem', u'FTYP']	(,)	
+521	['#', u'Stem', u'Epro', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Atem', u'Itmp', u'Ftem', u')', u'Upsk', u'Rltm', u'Atem', u'Itmp', u'Ftem']	(,)	0
+522	['#', u'Stem', u'Epro', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Atem', u'Itmp', u'Ftem', u')', u'Upsk', u'Rltm', u'Atem', u'Itmp']	(,)	0
+523	['#', u'Stem', u'Epro', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Atem', u'Itmp', u'Ftem', u')', u'Upsk', u'Rltm', u'Atem']	(,)	0
+524	['#', u'Stem', u'Epro', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Atem', u'Itmp', u'Ftem', u')', u'Upsk', u'Rltm']	(,)	0
+525	['#', u'Stem', u'Epro', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Atem', u'Itmp', u'Ftem', u')', u'Upsk', u'Rist', u',', u'Upsk']	(,)	50 Upsk , Rist
+526	['#', u'Stem', u'Epro', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Atem', u'Itmp', u'Ftem', u')', u'Upsk', u'Rist', u',']	(,)	0
+527	['#', u'Stem', u'Epro', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Atem', u'Itmp', u'Ftem', u')', u'Upsk', u'Rist']	(ID)	
+528	['#', u'Stem', u'Epro', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Atem', u'Itmp', u'Ftem', u')', u'Upsk', u'Rltm', u'Expr']	(ID)	49 Expr Rltm
+529	['#', u'Stem', u'Epro', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Atem', u'Itmp', u'Ftem', u')', u'Upsk', u'Rltm', u'Atem', u'Aexp']	(ID)	30 Aexp Atem
+530	['#', u'Stem', u'Epro', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Atem', u'Itmp', u'Ftem', u')', u'Upsk', u'Rltm', u'Atem', u'Itmp', u'Item']	(ID)	37 Item Itmp
+531	['#', u'Stem', u'Epro', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Atem', u'Itmp', u'Ftem', u')', u'Upsk', u'Rltm', u'Atem', u'Itmp', u'Ftem', u'Fact']	(ID)	40 Fact Ftem
+532	['#', u'Stem', u'Epro', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Atem', u'Itmp', u'Ftem', u')', u'Upsk', u'Rltm', u'Atem', u'Itmp', u'Ftem', u'FTYP', u'ID', u'Push']	(ID)	45 Push ID FTYP
+533	['#', u'Stem', u'Epro', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Atem', u'Itmp', u'Ftem', u')', u'Upsk', u'Rltm', u'Atem', u'Itmp', u'Ftem', u'FTYP', u'ID']	(ID)	0
+534	['#', u'Stem', u'Epro', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Atem', u'Itmp', u'Ftem', u')', u'Upsk', u'Rltm', u'Atem', u'Itmp', u'Ftem', u'FTYP']	(()	
+535	['#', u'Stem', u'Epro', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Atem', u'Itmp', u'Ftem', u')', u'Upsk', u'Rltm', u'Atem', u'Itmp', u'Ftem', u'Call']	(()	46 Call
+536	['#', u'Stem', u'Epro', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Atem', u'Itmp', u'Ftem', u')', u'Upsk', u'Rltm', u'Atem', u'Itmp', u'Ftem', u')', u'Upsk', u'Rist', u'(', u'Mpsk']	(()	47 Mpsk ( Rist Upsk )
+537	['#', u'Stem', u'Epro', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Atem', u'Itmp', u'Ftem', u')', u'Upsk', u'Rltm', u'Atem', u'Itmp', u'Ftem', u')', u'Upsk', u'Rist', u'(']	(()	0
+538	['#', u'Stem', u'Epro', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Atem', u'Itmp', u'Ftem', u')', u'Upsk', u'Rltm', u'Atem', u'Itmp', u'Ftem', u')', u'Upsk', u'Rist']	(ID)	
+539	['#', u'Stem', u'Epro', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Atem', u'Itmp', u'Ftem', u')', u'Upsk', u'Rltm', u'Atem', u'Itmp', u'Ftem', u')', u'Upsk', u'Rltm', u'Expr']	(ID)	49 Expr Rltm
+540	['#', u'Stem', u'Epro', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Atem', u'Itmp', u'Ftem', u')', u'Upsk', u'Rltm', u'Atem', u'Itmp', u'Ftem', u')', u'Upsk', u'Rltm', u'Atem', u'Aexp']	(ID)	30 Aexp Atem
+541	['#', u'Stem', u'Epro', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Atem', u'Itmp', u'Ftem', u')', u'Upsk', u'Rltm', u'Atem', u'Itmp', u'Ftem', u')', u'Upsk', u'Rltm', u'Atem', u'Itmp', u'Item']	(ID)	37 Item Itmp
+542	['#', u'Stem', u'Epro', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Atem', u'Itmp', u'Ftem', u')', u'Upsk', u'Rltm', u'Atem', u'Itmp', u'Ftem', u')', u'Upsk', u'Rltm', u'Atem', u'Itmp', u'Ftem', u'Fact']	(ID)	40 Fact Ftem
+543	['#', u'Stem', u'Epro', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Atem', u'Itmp', u'Ftem', u')', u'Upsk', u'Rltm', u'Atem', u'Itmp', u'Ftem', u')', u'Upsk', u'Rltm', u'Atem', u'Itmp', u'Ftem', u'FTYP', u'ID', u'Push']	(ID)	45 Push ID FTYP
+544	['#', u'Stem', u'Epro', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Atem', u'Itmp', u'Ftem', u')', u'Upsk', u'Rltm', u'Atem', u'Itmp', u'Ftem', u')', u'Upsk', u'Rltm', u'Atem', u'Itmp', u'Ftem', u'FTYP', u'ID']	(ID)	0
+545	['#', u'Stem', u'Epro', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Atem', u'Itmp', u'Ftem', u')', u'Upsk', u'Rltm', u'Atem', u'Itmp', u'Ftem', u')', u'Upsk', u'Rltm', u'Atem', u'Itmp', u'Ftem', u'FTYP']	())	
+546	['#', u'Stem', u'Epro', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Atem', u'Itmp', u'Ftem', u')', u'Upsk', u'Rltm', u'Atem', u'Itmp', u'Ftem', u')', u'Upsk', u'Rltm', u'Atem', u'Itmp', u'Ftem']	())	0
+547	['#', u'Stem', u'Epro', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Atem', u'Itmp', u'Ftem', u')', u'Upsk', u'Rltm', u'Atem', u'Itmp', u'Ftem', u')', u'Upsk', u'Rltm', u'Atem', u'Itmp']	())	0
+548	['#', u'Stem', u'Epro', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Atem', u'Itmp', u'Ftem', u')', u'Upsk', u'Rltm', u'Atem', u'Itmp', u'Ftem', u')', u'Upsk', u'Rltm', u'Atem']	())	0
+549	['#', u'Stem', u'Epro', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Atem', u'Itmp', u'Ftem', u')', u'Upsk', u'Rltm', u'Atem', u'Itmp', u'Ftem', u')', u'Upsk', u'Rltm']	())	0
+550	['#', u'Stem', u'Epro', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Atem', u'Itmp', u'Ftem', u')', u'Upsk', u'Rltm', u'Atem', u'Itmp', u'Ftem', u')', u'Upsk']	())	0
+551	['#', u'Stem', u'Epro', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Atem', u'Itmp', u'Ftem', u')', u'Upsk', u'Rltm', u'Atem', u'Itmp', u'Ftem', u')']	())	0
+552	['#', u'Stem', u'Epro', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Atem', u'Itmp', u'Ftem', u')', u'Upsk', u'Rltm', u'Atem', u'Itmp', u'Ftem']	())	
+553	['#', u'Stem', u'Epro', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Atem', u'Itmp', u'Ftem', u')', u'Upsk', u'Rltm', u'Atem', u'Itmp']	())	0
+554	['#', u'Stem', u'Epro', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Atem', u'Itmp', u'Ftem', u')', u'Upsk', u'Rltm', u'Atem']	())	0
+555	['#', u'Stem', u'Epro', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Atem', u'Itmp', u'Ftem', u')', u'Upsk', u'Rltm']	())	0
+556	['#', u'Stem', u'Epro', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Atem', u'Itmp', u'Ftem', u')', u'Upsk']	())	0
+557	['#', u'Stem', u'Epro', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Atem', u'Itmp', u'Ftem', u')']	())	0
+558	['#', u'Stem', u'Epro', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Atem', u'Itmp', u'Ftem']	(;)	
+559	['#', u'Stem', u'Epro', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Atem', u'Itmp']	(;)	0
+560	['#', u'Stem', u'Epro', u'}', u'Ltem', u';', u'Pcsk', u'Upex', u'Atem']	(;)	0
+561	['#', u'Stem', u'Epro', u'}', u'Ltem', u';', u'Pcsk', u'Upex']	(;)	0
+562	['#', u'Stem', u'Epro', u'}', u'Ltem', u';', u'Pcsk']	(;)	0
+563	['#', u'Stem', u'Epro', u'}', u'Ltem', u';']	(;)	0
+564	['#', u'Stem', u'Epro', u'}', u'Ltem']	(return)	
+565	['#', u'Stem', u'Epro', u'}', u'Lstr']	(return)	19 Lstr
+566	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Lang']	(return)	18 Lang Ltem
+567	['#', u'Stem', u'Epro', u'}', u'Ltem', u'Rela']	(return)	22 Rela
+568	['#', u'Stem', u'Epro', u'}', u'Ltem', u';', u'Endr', u'Rtem', u'return']	(return)	25 return Rtem Endr ;
+569	['#', u'Stem', u'Epro', u'}', u'Ltem', u';', u'Endr', u'Rtem']	(;)	
+570	['#', u'Stem', u'Epro', u'}', u'Ltem', u';', u'Endr']	(;)	0
+571	['#', u'Stem', u'Epro', u'}', u'Ltem', u';']	(;)	0
+572	['#', u'Stem', u'Epro', u'}', u'Ltem']	(})	
+573	['#', u'Stem', u'Epro', u'}']	(})	0
+574	['#', u'Stem', u'Epro']	(#)	
+575	['#', u'Stem']	(#)	0
+576	['#']	(#)	0

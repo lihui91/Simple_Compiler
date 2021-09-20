@@ -1,0 +1,45 @@
+PROGRAM PROC NEAR 
+	MOV	[3],0
+	MOV	EAX,[1]
+	ADD	EAX,[2]
+	CMP	[0],EAX
+	JL	Lab0
+	MOV	EAX,[1]
+	MUL	[2]
+	ADD	EAX,1
+	ADD	EAX,[0]
+	MOV	[4],EAX
+	JMP	Lab1
+Lab0:
+	MOV	[4],[0]
+Lab1:
+	CMP	[3],100
+	JGE	Lab2
+	MUL	2
+	MOV	[3],EAX
+	JMP	Lab1
+Lab2:
+	MOV	ECX,[3]
+RET
+PROGRAM ENDP 
+DEMO PROC NEAR 
+	MOV	EAX,[5]
+	ADD	EAX,2
+	MOV	[5],EAX
+	MOV	EAX,[5]
+	MUL	2
+	MOV	ECX,EAX
+RET
+DEMO ENDP 
+START:
+	MOV	AX,DATA
+	MOV	DS,AX
+	MOV	[6],3
+	MOV	[7],4
+	MOV	[8],2
+	MOV	[5],[8]
+	MOV	[0],[6]
+	MOV	[1],[7]
+	Call	program
+CODE ENDS
+END START
